@@ -49,25 +49,28 @@ const displayAllNewsInACategory = allNews => {
         newsDiv.classList.add('card', 'mb-3');
         newsDiv.innerHTML = `
         <div class="row g-2 p-3">
-            <div class="col-md-2">
-                <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            <div class="col-lg-2 col-md-4">
+                <img src="${news.thumbnail_url}" class="img-fluid rounded-start d-none d-lg-block h-100" alt="...">
+                <img src="${news.image_url}" class="img-fluid rounded-start d-block d-lg-none" alt="...">
             </div>
-            <div class="col-md-10">
+            <div class="col-lg-10 col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
                     <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
-                    <div class="d-flex justify-content-between align-items-center mt-5">
-                        <div class="d-flex">
-                            <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
-                            <div class="ms-2">
-                                <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
-                                <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
+                    <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-5">
+                        <div class="d-flex flex-sm-row flex-column justify-content-between align-items-center">
+                            <div class="d-flex pe-sm-5 pe-0">
+                                <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
+                                <div class="ms-3">
+                                    <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
+                                    <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
+                                </div>
+                            </div>
+                            <div class="ms-sm-5 ms-0">
+                                <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
                             </div>
                         </div>
-                        <div>
-                            <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
-                        </div>
-                        <div>
+                        <div class="mt-sm-0 mt-2">
                             <h5>
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -76,7 +79,8 @@ const displayAllNewsInACategory = allNews => {
                                 <i class="fa-regular fa-star"></i>
                             </h5>
                         </div>
-                        <div>
+                        
+                        <div class="mt-sm-0 mt-4">
                             <button onclick="loadNewsId('${news._id}')" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
                         </div>
                     </div>
@@ -141,3 +145,4 @@ const displayNews = newsDtails => {
 
 
 loadCategory();
+
