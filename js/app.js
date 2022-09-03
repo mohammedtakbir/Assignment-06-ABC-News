@@ -34,10 +34,19 @@ const NewsCategoryId = categoryId => {
         .then(data => displayAllNewsInACategory(data.data))
 }
 const displayAllNewsInACategory = allNews => {
+    console.log(allNews)
+    //* news count
+    const newsCount = document.getElementById('news-count');
+    if(allNews.length === 0){
+        newsCount.innerText = `No News Available`;
+    }else{
+        newsCount.innerText = `${allNews.length} News Found`;
+    }
+
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     allNews.forEach(news => {
-        console.log(news)
+        // console.log(news)
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3');
         newsDiv.innerHTML = `
