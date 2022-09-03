@@ -32,7 +32,9 @@ const NewsCategoryId = categoryId => {
         .then(data => displayAllNewsInACategory(data.data))
 }
 const displayAllNewsInACategory = allNews => {
-    console.log(allNews)
+    //* sort highest to lowest
+    allNews.sort((a, b) => b.total_view - a.total_view);
+
     //* news count
     const newsCount = document.getElementById('news-count');
     if(allNews.length === 0){
@@ -44,7 +46,7 @@ const displayAllNewsInACategory = allNews => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     allNews.forEach(news => {
-        // console.log(news)
+        
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3');
         newsDiv.innerHTML = `
