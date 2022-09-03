@@ -72,11 +72,11 @@ const displayAllNewsInACategory = allNews => {
                         </div>
                         <div class="mt-sm-0 mt-2">
                             <h5>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-solid fa-star awesome-color"></i>
+                                <i class="fa-solid fa-star awesome-color"></i>
+                                <i class="fa-solid fa-star awesome-color"></i>
+                                <i class="fa-solid fa-star-half-stroke awesome-color"></i>
+                                <i class="fa-regular fa-star awesome-color"></i>
                             </h5>
                         </div>
                         
@@ -125,13 +125,21 @@ const displayNews = newsDtails => {
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div class="d-flex">
                     <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
-                    <div class="ms-2">
+                    <div class="ms-3">
                         <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
                         <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                     </div>
                 </div>
                 <div>
-                    <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
+                    <p class="mb-0">
+                    <i class="fa-solid fa-star awesome-color"></i>
+                    <i class="fa-solid fa-star awesome-color"></i>
+                    <i class="fa-solid fa-star awesome-color"></i>
+                    <i class="fa-solid fa-star-half-stroke awesome-color"></i>
+                    <i class="fa-regular fa-star awesome-color"></i>
+                    <span class="fw-semibold ms-2">${news.rating.number}</span>
+                    </p>
+                    <p class="fw-semibold">${news.rating.badge}</p>
                 </div>
             </div>
         `;
@@ -146,3 +154,7 @@ const displayNews = newsDtails => {
 
 loadCategory();
 
+//*
+document.getElementById('blog').addEventListener('click', () => {
+    window.location.href = 'blog.html'
+})

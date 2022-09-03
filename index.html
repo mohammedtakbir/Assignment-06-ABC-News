@@ -29,7 +29,7 @@
                             <a class="nav-link" aria-current="page" href="#">News</a>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link" aria-current="page" href="#">Blog</a>
+                            <a id="blog" class="nav-link" aria-current="page" href="#">Blog</a>
                         </li>
                         <li class="nav-item mx-3">
                             <a href="#">
@@ -47,13 +47,14 @@
         <!--* category -->
         <section class="container category">
             <ul id="category-container" class="category text-center">
-                
+
             </ul>
         </section>
         <!--* spinner -->
         <section class="container mt-5">
             <div id="load-spinner" class="d-none">
-                <div class="d-flex justify-content-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+                <div class="d-flex justify-content-center"
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
                     <div class="spinner-border text-success" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -70,28 +71,31 @@
 
             </div>
         </section>
-    </main>
 
-    </main>
+        <!--* Modal -->
+        <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="news-details" class="modal-body">
 
-    <!--* Modal -->
-    <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="news-details" class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+    <footer class="text-center bg-white py-4">
+        <p class="mb-0">Copyright 2022. ABC News</p>
+    </footer>
+
+
 
 
 

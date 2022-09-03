@@ -1,3 +1,6 @@
+body{
+    background-color: #F6F6F6;
+}
 .category{
     display: flex;
     justify-content: center;
@@ -11,7 +14,9 @@
 .category span {
     cursor: pointer;
 }
-
+.awesome-color{
+    color: rgb(244, 191, 57);
+}
 
 
 
