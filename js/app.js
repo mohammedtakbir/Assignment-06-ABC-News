@@ -14,11 +14,9 @@ const displayCategory = categories => {
         // console.log(category)
         if (unique.indexOf(category.category_name) === -1) {
             unique.push(category.category_name);
-
             const li = document.createElement('li');
-            li.classList.add('list-group-item', 'mx-3')
             li.innerHTML = `
-                <span onclick="NewsCategoryId(${category.category_id})" class="p-1">${category.category_name}</span>
+                <span onclick="NewsCategoryId(${category.category_id})" class="p-1 mx-3">${category.category_name}</span>
             `;
             categoryContainer.appendChild(li);
         }
@@ -68,6 +66,15 @@ const displayAllNewsInACategory = allNews => {
                         </div>
                         <div>
                             <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
+                        </div>
+                        <div>
+                            <h5>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </h5>
                         </div>
                         <div>
                             <button onclick="loadNewsId('${news._id}')" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>

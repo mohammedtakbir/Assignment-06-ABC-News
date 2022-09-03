@@ -1,3 +1,28 @@
+.category{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0 !important;
+}
+.category li{
+    list-style-type: none;
+    margin: 10px 0;
+}
 .category span {
     cursor: pointer;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px){
+    .category{
+        flex-direction: column;
+    }
+    .category li{
+        margin: 5px 0;
+    }
 }
