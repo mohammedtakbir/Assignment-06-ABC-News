@@ -69,6 +69,32 @@ const displayAllNewsInACategory = allNews => {
         newsContainer.appendChild(newsDiv);
     })
 }
+//* news details
+const loadNewsId = newsId => {
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayNews(data.data))
+}
+const displayNews = newsDtails => {
+    newsDtails.forEach(news => {
+        const newsTitle = document.getElementById('exampleModalLabel');
+        newsTitle.innerText = news.title;
+
+        const newsDetails = document.getElementById('news-details');
+        newsDetails.innerHTML = `
+        <p class="card-text">${news.details}</p>
+        <div class="d-flex mt-5">
+            <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
+            <div class="ms-2">
+                 <h6>${news.author.name ? news.author.name : 'no author found'}</h4>
+                <p>${news.author.published_date}</p>
+            </div>
+        </div>
+        `;
+
+    })
+}
 
 
 
