@@ -125,7 +125,7 @@ const displayNews = newsDtails => {
             <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
             <p class="card-text mt-3">${news.details}</p>
             <div class="d-flex justify-content-between align-items-center mt-5">
-                <div class="d-flex">
+                <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                     <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
                     <div class="ms-sm-3 ms-0">
                         <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
