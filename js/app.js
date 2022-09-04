@@ -4,7 +4,7 @@ const loadCategory = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategory(data.data.news_category))
-        .catch(error => console.log(error));
+        .catch(error => console.log(error))
 };
 //* display news category
 const displayCategory = categories => {
@@ -23,32 +23,28 @@ const displayCategory = categories => {
 };
 //* all news
 const NewsCategoryId = categoryId => {
-    console.log(categoryId)
     //* spinner start
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/0${categoryId}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayAllNewsInACategory(data.data))
-        .catch(error => console.log(error));
+        .catch(error => console.log(error))
 };
 const displayAllNewsInACategory = allNews => {
-    console.log(allNews)
     //* sort highest to lowest
     allNews.sort((a, b) => b.total_view - a.total_view);
-
-    //* news count
+    //* count news
     const newsCount = document.getElementById('news-count');
     if(allNews.length === 0){
         newsCount.innerText = `No News Available`;
     }else{
         newsCount.innerText = `${allNews.length} News Found in this category`;
-    }
+    };
 
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     allNews.forEach(news => {
-        
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'mb-3', 'border', 'border-0', 'shadow-sm');
         newsDiv.innerHTML = `
@@ -60,14 +56,14 @@ const displayAllNewsInACategory = allNews => {
             <div class="col-lg-10 col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
-                    <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
+                    <p class="card-text text-muted">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
                     <div class="d-flex flex-md-row flex-column justify-content-between align-items-sm-center mt-5">
                         <div class="d-flex justify-content-between ">
                             <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                                 <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
                                 <div class="ms-sm-3 ms-0">
                                     <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
-                                    <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
+                                    <p class="text-muted">${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                                 </div>
                             </div>
                             <div class="ms-sm-5 ms-0 align-self-center">
@@ -83,7 +79,6 @@ const displayAllNewsInACategory = allNews => {
                                 <i class="fa-regular fa-star awesome-color"></i>
                             </h5>
                         </div>
-                        
                         <div class="mt-sm-0 mt-4">
                             <button onclick="loadNewsId('${news._id}')" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
                         </div>
@@ -97,7 +92,7 @@ const displayAllNewsInACategory = allNews => {
     //* spinner end
     toggleSpinner(false);
 };
-//* togglrSpinner
+//* toggleSpinner
 const loadSpinner = document.getElementById('load-spinner');
 const toggleSpinner = isLoading => {
     if(isLoading){
@@ -106,14 +101,13 @@ const toggleSpinner = isLoading => {
         loadSpinner.classList.add('d-none')
     };
 };
-
 //* news details open by modal
 const loadNewsId = newsId => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayNews(data.data))
-    .catch(error => console.log(error));
+    .catch(error => console.log(error))
 };
 const displayNews = newsDtails => {
     newsDtails.forEach(news => {
@@ -123,13 +117,13 @@ const displayNews = newsDtails => {
         const newsDetails = document.getElementById('news-details');
         newsDetails.innerHTML = `
             <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
-            <p class="card-text mt-3">${news.details}</p>
+            <p class="card-text mt-3 text-muted">${news.details}</p>
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                     <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
                     <div class="ms-sm-3 ms-0">
                         <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
-                        <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
+                        <p class="text-muted">${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                     </div>
                 </div>
                 <div>
@@ -147,32 +141,29 @@ const displayNews = newsDtails => {
         `;
     });
 };
-
 loadCategory();
-
 //* connecting to the blog page
 document.getElementById('blog').addEventListener('click', () => {
-    window.location.href = 'blog.html'
+    window.location.href = 'blog.html';
 });
-
-//* By Default All News
+//* By Default show All News
 const loadAllNewsByDefault = () => {
     const url = `https://openapi.programming-hero.com/api/news/category/08`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayDefaultNews(data.data))
+    .catch(error => console.log(error))
 };
 const displayDefaultNews = (defaultAllNews) => {
     //* sort highest to lowest
     defaultAllNews.sort((a, b) => b.total_view - a.total_view);
-
-    //* news count
+    //* count news
     const newsCount = document.getElementById('news-count');
     if(defaultAllNews.length === 0){
         newsCount.innerText = `No News Available`;
     }else{
         newsCount.innerText = `All News`;
-    }
+    };
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     defaultAllNews.forEach(news => {
@@ -187,14 +178,14 @@ const displayDefaultNews = (defaultAllNews) => {
             <div class="col-lg-10 col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
-                    <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
+                    <p class="card-text text-muted">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
                     <div class="d-flex flex-md-row flex-column justify-content-between align-items-sm-center mt-5">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                                 <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
                                 <div class="ms-sm-3 ms-0">
                                     <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
-                                    <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
+                                    <p class="text-muted">${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                                 </div>
                             </div>
                             <div class="ms-sm-5 ms-0 align-self-center">
@@ -210,7 +201,6 @@ const displayDefaultNews = (defaultAllNews) => {
                                 <i class="fa-regular fa-star awesome-color"></i>
                             </h5>
                         </div>
-                        
                         <div class="mt-sm-0 mt-4">
                             <button onclick="loadNewsId('${news._id}')" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More</button>
                         </div>
