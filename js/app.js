@@ -61,16 +61,16 @@ const displayAllNewsInACategory = allNews => {
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
                     <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
-                    <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-5">
-                        <div class="d-flex flex-sm-row flex-column justify-content-between align-items-center">
-                            <div class="d-flex pe-sm-5 pe-0">
+                    <div class="d-flex flex-md-row flex-column justify-content-between align-items-sm-center mt-5">
+                        <div class="d-flex justify-content-between ">
+                            <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                                 <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
-                                <div class="ms-3">
+                                <div class="ms-sm-3 ms-0">
                                     <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
                                     <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                                 </div>
                             </div>
-                            <div class="ms-sm-5 ms-0">
+                            <div class="ms-sm-5 ms-0 align-self-center">
                                 <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ const displayNews = newsDtails => {
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div class="d-flex">
                     <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
-                    <div class="ms-3">
+                    <div class="ms-sm-3 ms-0">
                         <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
                         <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                     </div>
@@ -188,16 +188,16 @@ const displayDefaultNews = (defaultAllNews) => {
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
                     <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 400) + '...' : news.details}</p>
-                    <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mt-5">
-                        <div class="d-flex flex-sm-row flex-column justify-content-between align-items-center">
-                            <div class="d-flex pe-sm-5 pe-0">
+                    <div class="d-flex flex-md-row flex-column justify-content-between align-items-sm-center mt-5">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-sm-row flex-column pe-sm-5 pe-0">
                                 <img src="${news.author.img}" style="width: 50px; height: 50px; border-radius: 50%">    
-                                <div class="ms-3">
+                                <div class="ms-sm-3 ms-0">
                                     <h5>${news.author.name ? news.author.name : 'No Author Available'}</h5>
                                     <p>${news.author.published_date === null ? 'No Date Available' : news.author.published_date}</p>
                                 </div>
                             </div>
-                            <div class="ms-sm-5 ms-0">
+                            <div class="ms-sm-5 ms-0 align-self-center">
                                 <h5><i class="fa-regular fa-eye me-2"></i> ${news.total_view ? news.total_view + 'K' : 'No viwes'}</h5>
                             </div>
                         </div>
