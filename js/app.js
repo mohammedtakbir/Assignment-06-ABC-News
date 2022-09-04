@@ -15,7 +15,7 @@ const displayCategory = categories => {
             unique.push(category.category_name);
             const li = document.createElement('li');
             li.innerHTML = `
-                <span onclick="NewsCategoryId(${category.category_id})" class="p-1 mx-3">${category.category_name}</span>
+                <span onclick="NewsCategoryId(${category.category_id})" class="p-1 mx-3 fs-5 text-muted">${category.category_name}</span>
             `;
             categoryContainer.appendChild(li);
         };
@@ -50,7 +50,7 @@ const displayAllNewsInACategory = allNews => {
     allNews.forEach(news => {
         
         const newsDiv = document.createElement('div');
-        newsDiv.classList.add('card', 'mb-3');
+        newsDiv.classList.add('card', 'mb-3', 'border', 'border-0', 'shadow-sm');
         newsDiv.innerHTML = `
         <div class="row g-2 p-3">
             <div class="col-lg-2 col-md-4">
@@ -177,7 +177,7 @@ const displayDefaultNews = (defaultAllNews) => {
     newsContainer.textContent = '';
     defaultAllNews.forEach(news => {
         const newsDiv = document.createElement('div');
-        newsDiv.classList.add('card', 'mb-3');
+        newsDiv.classList.add('card', 'mb-3', 'border', 'border-0', 'shadow-sm');
         newsDiv.innerHTML = `
         <div class="row g-2 p-3">
             <div class="col-lg-2 col-md-4">

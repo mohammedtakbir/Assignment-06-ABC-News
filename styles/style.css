@@ -13,6 +13,10 @@ body{
 }
 .category span {
     cursor: pointer;
+    transition: .3s linear;
+}
+.category span:hover{
+    color: #000 !important;
 }
 .awesome-color{
     color: rgb(244, 191, 57);
